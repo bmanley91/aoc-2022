@@ -39,6 +39,9 @@ class CalorieCounter
       elves.push(current_total)
     end
 
-    sum = elves.sort_by { -_1 }.take(count).sum
+    # Sort the array of elves descending
+    # Take the top X
+    # Sum their values
+    elves.sort_by(&:-@).take(count).sum
   end
 end
