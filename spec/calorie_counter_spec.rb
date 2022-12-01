@@ -14,7 +14,7 @@ RSpec.describe CalorieCounter do
     expected = 45_000
 
     counter = CalorieCounter.new
-    actual = counter.max_calories_from_top_x('data/day_1/input.txt', 3)
+    actual = counter.max_calories_from_top_x('data/day_1/test_input.txt', 3)
 
     expect(actual).to eq(expected)
   end
