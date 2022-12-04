@@ -32,17 +32,15 @@ class CampCleanup
         range_strings = file_line.split(',')
         return range_strings.map { |range_string|
             numbers = range_string.split('-')
-            CleanupRange.new(numbers[0].to_i, numbers[1].to_i)
+            (numbers[0].to_i...numbers[1].to_i)
         }
     end
 
     def self.does_range_contain(range1, range2)
-        return range1.start <= range2.start && range1.finish >= range2.finish
+        return range1.begin <= range2.end && range1.begin >= range2.end
     end
 
     def self.do_ranges_overlap(range1, range2)
-        return range2.start <= range1.finish && range1.start <= range2.finish
+        return range2.begin <= range1.end && range1.begin <= range2.end
     end
 end
-
-CleanupRange = Struct.new('CleanupRange', :start, :finish)
