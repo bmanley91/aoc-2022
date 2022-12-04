@@ -17,8 +17,8 @@ RSpec.describe CampCleanup do
         expect(actual).to eq(expected)
     end
 
-    it 'Day 4 solutions' do
-        puts "Day 4 Solution 1 #{CampCleanup.find_full_overlaps('data/day_4/input.txt')}"
-        puts "Day 4 Solution 2 #{CampCleanup.find_any_overlaps('data/day_4/input.txt')}"
-    end
+    # it 'Day 4 solutions' do
+    #     puts "Day 4 Solution 1 #{CampCleanup.find_full_overlaps('data/day_4/input.txt')}"
+    #     puts "Day 4 Solution 2 #{CampCleanup.find_any_overlaps('data/day_4/input.txt')}"
+    # end
 end

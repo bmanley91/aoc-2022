@@ -27,13 +27,9 @@ class CampCleanup
         return overlap_count
     end
 
-    # Split format 1-2,3-4 into two range structs
     def self.parse_range_line(file_line)
-        range_strings = file_line.split(',')
-        return range_strings.map { |range_string|
-            numbers = range_string.split('-')
-            (numbers[0].to_i...numbers[1].to_i)
-        }
+        matches = file_line.match /(?<r1_start>\d+)-(?<r1_end>\d+),(?<r2_start>\d+)-(?<r2_end>\d+)/
+        return [(matches[:r1_start]...matches[:r1_end]), (matches[:r2_start]...matches[:r2_end])]
     end
 
     def self.does_range_contain(range1, range2)
