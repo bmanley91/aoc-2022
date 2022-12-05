@@ -17,8 +17,8 @@ RSpec.describe RockPaperScissors do
         expect(actual).to eq(expected)
     end
 
-    it 'Day 2 solutions' do
-        puts "Day 2 Solution 1 #{RockPaperScissors.new.calc_total_score('data/day_2/input.txt')}"
-        puts "Day 2 Solution 2 #{RockPaperScissorsCorrected.new.calc_total_score('data/day_2/input.txt')}"
-    end
+    # it 'Day 2 solutions' do
+    #     puts "Day 2 Solution 1 #{RockPaperScissors.new.calc_total_score('data/day_2/input.txt')}"
+    #     puts "Day 2 Solution 2 #{RockPaperScissorsCorrected.new.calc_total_score('data/day_2/input.txt')}"
+    # end
 end
