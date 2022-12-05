@@ -15,6 +15,21 @@ class SupplyStacks
         return build_result(stacks)
     end
 
+    def self.find_top_crates_v2(input_file)
+        file_lines = File.readlines(input_file)
+
+        # Find the row with the number of stacks
+        column_def_row_index = find_column_def_row(file_lines)
+
+        stacks =  initialize_stacks(file_lines, column_def_row_index)
+
+        # Instructions start two lines after the column definition row
+        process_instructions(stacks, file_lines.drop(column_def_row_index+2), true)
+        puts stacks.to_s
+
+        return build_result(stacks)
+    end
+
     def self.find_column_def_row(lines)
         lines.each_with_index do |line, index|
             if line.match(/^ 1/)
@@ -49,10 +64,14 @@ class SupplyStacks
         return stacks
     end
 
-    def self.process_instructions(stacks, instruction_lines)
+    def self.process_instructions(stacks, instruction_lines, is_v2=false)
         instruction_lines.each do |line|
             instruction = parse_instruction_line(line)
-            execute_instruction(stacks, instruction)
+            if (is_v2)
+                execute_instruction_v2(stacks, instruction)
+            else
+                execute_instruction(stacks, instruction)
+            end
         end
     end
 
@@ -69,6 +88,17 @@ class SupplyStacks
 
         while !crates_to_move.empty? do
             stacks[instruction[:to]].push(crates_to_move.shift())
+        end
+    end
+
+    def self.execute_instruction_v2(stacks, instruction)
+        crates_to_move = [] 
+        while crates_to_move.length < instruction[:count] do
+            crates_to_move.push(stacks[instruction[:from]].pop())
+        end
+
+        while !crates_to_move.empty? do
+            stacks[instruction[:to]].push(crates_to_move.pop())
         end
     end
 
