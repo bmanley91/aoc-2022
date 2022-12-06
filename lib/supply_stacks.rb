@@ -25,7 +25,6 @@ class SupplyStacks
 
         # Instructions start two lines after the column definition row
         process_instructions(stacks, file_lines.drop(column_def_row_index+2), true)
-        puts stacks.to_s
 
         return build_result(stacks)
     end
