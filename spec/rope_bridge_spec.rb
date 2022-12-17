@@ -9,9 +9,9 @@ RSpec.describe RopeBridge do
         expect(actual).to eq(expected)
     end
 
-    it 'Day 6 Solutions' do
+    it 'Day 9 Solutions' do
         puts
-        puts "Day 7 Solution 1: #{RopeBridge.find_unique_tail_positions('data/day_9/input.txt')}"
+        puts "Day 9 Solution 1: #{RopeBridge.find_unique_tail_positions('data/day_9/input.txt')}"
         # puts "Day 6 Solution 2: #{StartOfPacket.chars_until_start_of_message('data/day_6/input.txt')}"
     end
 end
